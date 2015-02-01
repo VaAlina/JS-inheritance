@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dog Aban is saying gav</title>
+
+</head>
+<body>
+
+<script>
+var Animal = function (name) {
+    this.name = name;
+};
+Animal.prototype.getName = function () {
+    return this.name;
+};
+
+var Dog = function () {
+    Animal.apply(this, arguments);
+};
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.gav = function () {
+    return "Dog "+this.getName()+" is saying gav";
+};
+
+var dog = new Dog("Aban");
+
+alert(dog.getName () === "garfield"); // false
+
+alert(dog.gav () === "Dog Aban is saying gav"); // true
+</script>
+
+</body>
+</html>
